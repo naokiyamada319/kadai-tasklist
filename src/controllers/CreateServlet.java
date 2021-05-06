@@ -45,6 +45,9 @@ public class CreateServlet extends HttpServlet {
 			t.setCreated_at(currentTime);
 			t.setUpdated_at(currentTime);
 
+			String content = request.getParameter("content");
+			t.setContent(content);
+
 			List<String> errors = TaskValidator.validate(t);
 			if(errors.size() > 0) {
 				em.close();

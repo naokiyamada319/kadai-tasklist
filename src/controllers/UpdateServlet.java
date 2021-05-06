@@ -43,6 +43,9 @@ public class UpdateServlet extends HttpServlet {
 			Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 			t.setUpdated_at(currentTime);
 
+			String content = request.getParameter("content");
+			t.setContent(content);
+
 			List<String> errors = TaskValidator.validate(t);
 			if(errors.size() > 0) {
 				em.close();
